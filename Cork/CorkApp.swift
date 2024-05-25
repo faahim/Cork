@@ -9,7 +9,7 @@ import SwiftUI
 import UserNotifications
 
 @main
-struct CorkApp: App
+struct CorkApp: App, Sendable
 {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
@@ -155,14 +155,14 @@ struct CorkApp: App
                                     newOutdatedPackages = .init()
                                 }
 
-                                if newOutdatedPackages.count > outdatedPackageTracker.allOutdatedPackages.count
+                                if await newOutdatedPackages.count > outdatedPackageTracker.allOutdatedPackages.count
                                 {
                                     AppConstants.logger.log("New updates found")
 
                                     /// Set this to `true` so the normal notification doesn't get sent
                                     sendStandardUpdatesAvailableNotification = false
 
-                                    let differentPackages = newOutdatedPackages.subtracting(outdatedPackageTracker.outdatedPackages)
+                                    let differentPackages = await newOutdatedPackages.subtracting(outdatedPackageTracker.outdatedPackages)
                                     AppConstants.logger.debug("Changed packages: \(differentPackages, privacy: .auto)")
 
                                     sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).formatted(.list(type: .and)))

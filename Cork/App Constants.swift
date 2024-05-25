@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftyJSON
-import UserNotifications
+@preconcurrency import UserNotifications
 import OSLog
 
 struct AppConstants

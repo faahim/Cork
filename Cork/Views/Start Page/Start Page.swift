@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StartPage: View
+struct StartPage: View, Sendable
 {
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: AvailableTaps

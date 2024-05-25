@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InstallationInitialView: View
+struct InstallationInitialView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss
     

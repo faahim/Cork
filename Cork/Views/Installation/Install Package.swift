@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddFormulaView: View
+struct AddFormulaView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss
 
