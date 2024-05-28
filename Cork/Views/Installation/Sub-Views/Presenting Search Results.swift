@@ -26,7 +26,10 @@ struct PresentingSearchResultsView: View
     @State private var isCasksSectionCollapsed: Bool = false
 
     @State var isSearchFieldFocused: Bool = true
-
+    
+    @State private var packageToPreview: BrewPackage?
+    @State private var isShowingPackagePreview: Bool = true
+    
     var body: some View
     {
         VStack
@@ -36,20 +39,25 @@ struct PresentingSearchResultsView: View
                 foundPackageSelection = nil // Clear all selected items when the user looks for a different package
             }
 
-            List(selection: $foundPackageSelection)
+            HStack
             {
-                SearchResultsSection(
-                    sectionType: .formula,
-                    packageList: searchResultTracker.foundFormulae
-                )
-
-                SearchResultsSection(
-                    sectionType: .cask,
-                    packageList: searchResultTracker.foundCasks
-                )
+                List(selection: $foundPackageSelection)
+                {
+                    SearchResultsSection(
+                        sectionType: .formula,
+                        packageList: searchResultTracker.foundFormulae
+                    )
+                    
+                    SearchResultsSection(
+                        sectionType: .cask,
+                        packageList: searchResultTracker.foundCasks
+                    )
+                }
+                .listStyle(.bordered(alternatesRowBackgrounds: true))
+                .frame(width: 300, height: 300)
+                
+                PackagePreview(packageToPreview: packageToPreview, isShowingSelf: isShowingPackagePreview)
             }
-            .listStyle(.bordered(alternatesRowBackgrounds: true))
-            .frame(width: 300, height: 300)
 
             HStack
             {
@@ -80,6 +88,20 @@ struct PresentingSearchResultsView: View
                     }
                     .keyboardShortcut(.defaultAction)
                     .disabled(foundPackageSelection == nil)
+                }
+            }
+        }
+        .onChange(of: foundPackageSelection)
+        { newValue in
+            if let newValue
+            {
+                do
+                {
+                    packageToPreview = try getPackageFromUUID(requestedPackageUUID: newValue, tracker: searchResultTracker)
+                }
+                catch let uuidAssociationError
+                {
+                    AppConstants.logger.error("Could not associate UUID with package: \(uuidAssociationError)")
                 }
             }
         }

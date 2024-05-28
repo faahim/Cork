@@ -137,6 +137,7 @@
 		637260CB29BE4F6400E6E81C /* Packages Included in Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637260CA29BE4F6400E6E81C /* Packages Included in Tap.swift */; };
 		63738C7F2AA38BF9009278B8 /* Updating Process Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63738C7E2AA38BF9009278B8 /* Updating Process Details.swift */; };
 		63739B862C0660F100DE6A17 /* Binary Already Exists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63739B852C0660F100DE6A17 /* Binary Already Exists.swift */; };
+		63739B892C06892900DE6A17 /* Package Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63739B882C06892900DE6A17 /* Package Preview.swift */; };
 		6373D9CB29DC60CB00D98607 /* Reinstall Corrupted Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */; };
 		6373D9CE29DC623E00D98607 /* Package Reinstallation Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */; };
 		637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637402D9299BF878001AB7B1 /* Sidebar View.swift */; };
@@ -445,6 +446,7 @@
 		637260CA29BE4F6400E6E81C /* Packages Included in Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Packages Included in Tap.swift"; sourceTree = "<group>"; };
 		63738C7E2AA38BF9009278B8 /* Updating Process Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Updating Process Details.swift"; sourceTree = "<group>"; };
 		63739B852C0660F100DE6A17 /* Binary Already Exists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binary Already Exists.swift"; sourceTree = "<group>"; };
+		63739B882C06892900DE6A17 /* Package Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Preview.swift"; sourceTree = "<group>"; };
 		6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reinstall Corrupted Package.swift"; sourceTree = "<group>"; };
 		6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Reinstallation Stage.swift"; sourceTree = "<group>"; };
 		637402D9299BF878001AB7B1 /* Sidebar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar View.swift"; sourceTree = "<group>"; };
@@ -1217,6 +1219,14 @@
 			path = "Status Views";
 			sourceTree = "<group>";
 		};
+		63739B872C06891900DE6A17 /* Previews */ = {
+			isa = PBXGroup;
+			children = (
+				63739B882C06892900DE6A17 /* Package Preview.swift */,
+			);
+			path = Previews;
+			sourceTree = "<group>";
+		};
 		6373D9C929DC60B700D98607 /* Reinstall Corrupted Package */ = {
 			isa = PBXGroup;
 			children = (
@@ -1403,6 +1413,7 @@
 		6392FD112A921B9600711B92 /* Sub-Views */ = {
 			isa = PBXGroup;
 			children = (
+				63739B872C06891900DE6A17 /* Previews */,
 				63739B842C0660DF00DE6A17 /* Status Views */,
 				6317BF6F2ADEE1EC0018E425 /* Initial */,
 				63AB6C472A9FEBEF00E58B93 /* Misc Views */,
@@ -2172,6 +2183,7 @@
 				63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */,
 				63581BD12BB86BC4009A8E03 /* Menu Bar - Package Updating.swift in Sources */,
 				63A96F722AA4F8030029E33B /* Array - Get Difference.swift in Sources */,
+				63739B892C06892900DE6A17 /* Package Preview.swift in Sources */,
 				637D539C2BAB544400E072DA /* Sidebar Service Row.swift in Sources */,
 				632FD2972995A7E50029FC49 /* Nicer Text Editor.swift in Sources */,
 				63D67B782AC5E205002EB992 /* Tap Title.swift in Sources */,

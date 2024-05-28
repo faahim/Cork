@@ -43,14 +43,18 @@ struct InstallationInitialView: View
             {
                 if !topPackagesTracker.topFormulae.isEmpty || !topPackagesTracker.topCasks.isEmpty
                 {
-                    List(selection: $foundPackageSelection)
+                    HStack(alignment: .center, spacing: 5)
                     {
-                        TopPackagesSection(packageTracker: topPackagesTracker.topFormulae, isCaskTracker: false)
-
-                        TopPackagesSection(packageTracker: topPackagesTracker.topCasks, isCaskTracker: true)
+                        List(selection: $foundPackageSelection)
+                        {
+                            TopPackagesSection(packageTracker: topPackagesTracker.topFormulae, isCaskTracker: false)
+                            
+                            TopPackagesSection(packageTracker: topPackagesTracker.topCasks, isCaskTracker: true)
+                        }
+                        .listStyle(.bordered(alternatesRowBackgrounds: true))
+                        .frame(minHeight: 200)
+                        
                     }
-                    .listStyle(.bordered(alternatesRowBackgrounds: true))
-                    .frame(minHeight: 200)
                 }
                 else
                 {
