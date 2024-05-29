@@ -6218,10 +6218,24 @@
       }
     },
     "add-package.preview.close.action" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close Preview"
+          }
+        }
+      }
     },
     "add-package.preview.open.action" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preview Package"
+          }
+        }
+      }
     },
     "add-package.result.already-installed" : {
       "localizations" : {
