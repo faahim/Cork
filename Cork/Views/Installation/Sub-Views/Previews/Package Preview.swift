@@ -97,6 +97,10 @@ struct PackagePreview: View
                     ProgressView()
                 }
             }
+            .task 
+            {
+                await loadPackageDetails(packageToPreview)
+            }
             .onChange(of: packageToPreview)
             { newValue in
                 Task
@@ -113,6 +117,8 @@ struct PackagePreview: View
         if let packageToPreview
         {
             isLoadingPackageDetails = true
+            
+            dependencies = nil
 
             print("Will see info for \(packageToPreview.name)")
 

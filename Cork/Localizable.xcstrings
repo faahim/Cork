@@ -6217,6 +6217,12 @@
         }
       }
     },
+    "add-package.preview.close.action" : {
+
+    },
+    "add-package.preview.open.action" : {
+
+    },
     "add-package.result.already-installed" : {
       "localizations" : {
         "cs" : {

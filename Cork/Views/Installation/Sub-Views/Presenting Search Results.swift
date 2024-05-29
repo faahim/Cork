@@ -28,7 +28,7 @@ struct PresentingSearchResultsView: View
     @State var isSearchFieldFocused: Bool = true
 
     @State private var packageToPreview: BrewPackage?
-    @State private var isShowingPackagePreview: Bool = true
+    @State private var isShowingPackagePreview: Bool = false
 
     var body: some View
     {
@@ -67,6 +67,13 @@ struct PresentingSearchResultsView: View
                 DismissSheetButton()
 
                 Spacer()
+                
+                Button
+                {
+                    isShowingPackagePreview.toggle()
+                } label: {
+                    Text(isShowingPackagePreview ? "add-package.preview.close.action" : "add-package.preview.open.action")
+                }
 
                 if isSearchFieldFocused
                 {
