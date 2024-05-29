@@ -26,35 +26,38 @@ struct PresentingSearchResultsView: View
     @State private var isCasksSectionCollapsed: Bool = false
 
     @State var isSearchFieldFocused: Bool = true
-    
+
     @State private var packageToPreview: BrewPackage?
     @State private var isShowingPackagePreview: Bool = true
-    
+
     var body: some View
     {
         VStack
         {
-            InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt"))
-            {
-                foundPackageSelection = nil // Clear all selected items when the user looks for a different package
-            }
-
             HStack
             {
-                List(selection: $foundPackageSelection)
+                VStack(alignment: .leading)
                 {
-                    SearchResultsSection(
-                        sectionType: .formula,
-                        packageList: searchResultTracker.foundFormulae
-                    )
+                    InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt"))
+                    {
+                        foundPackageSelection = nil // Clear all selected items when the user looks for a different package
+                    }
                     
-                    SearchResultsSection(
-                        sectionType: .cask,
-                        packageList: searchResultTracker.foundCasks
-                    )
+                    List(selection: $foundPackageSelection)
+                    {
+                        SearchResultsSection(
+                            sectionType: .formula,
+                            packageList: searchResultTracker.foundFormulae
+                        )
+                        
+                        SearchResultsSection(
+                            sectionType: .cask,
+                            packageList: searchResultTracker.foundCasks
+                        )
+                    }
+                    .listStyle(.bordered(alternatesRowBackgrounds: true))
+                    .frame(minWidth: 300, minHeight: 300)
                 }
-                .listStyle(.bordered(alternatesRowBackgrounds: true))
-                .frame(width: 300, height: 300)
                 
                 PackagePreview(packageToPreview: packageToPreview, isShowingSelf: isShowingPackagePreview)
             }
